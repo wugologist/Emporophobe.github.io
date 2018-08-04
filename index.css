@@ -1,0 +1,32 @@
+html {
+	background-color: #10202f;
+	color: #eee;
+	font-family: 'Roboto', sans-serif;
+}
+
+body {
+	width: 50%;
+	margin: 100px auto;
+	min-width: 600px;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+	font-weight: 100;
+}
+
+h1 {
+	font-size: 48px;
+}
+
+h2 {
+	font-size: 36px;
+}
+
+p {
+	min-width: 500px;
+}
+
+.contact-img {
+	margin: 10px 8%;
+	width: 16%;
+}
