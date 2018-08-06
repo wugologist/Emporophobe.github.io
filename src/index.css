@@ -1,10 +1,20 @@
+:root {
+	--dark: #10202f;
+	--light: #eee;
+	--teal: #32c7d2;
+}
+
 html {
-	background-color: #10202f;
-	color: #eee;
+	background-color: var(--dark);
+	color: var(--light);
 	font-family: 'Roboto', sans-serif;
 }
 
 body {
+	margin: 0;
+}
+
+#content {
 	width: 50%;
 	margin: 100px auto;
 	min-width: 600px;
@@ -22,8 +32,8 @@ h2 {
 	font-size: 36px;
 }
 
-p {
-	min-width: 500px;
+a {
+	text-decoration: none;
 }
 
 .contact-img {
