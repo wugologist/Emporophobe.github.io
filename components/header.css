@@ -24,3 +24,15 @@
 	width: 100%;
 	background-color: var(--teal);
 }
+
+#header .link {
+	font-size: 30px;
+	font-weight: 100;
+	text-alight: left;
+	float: right;
+	margin: 5px 15px;
+}
+
+#header .link:hover {
+	color: var(--teal);
+}
