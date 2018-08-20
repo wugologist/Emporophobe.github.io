@@ -33,6 +33,7 @@ input {
 input:invalid {
 	color: red;
 	box-shadow: none;
+	border-bottom: 1px solid red;
 }
 
 input:hover {
@@ -60,6 +61,11 @@ button {
 	align-content: center;
 	font-family: 'Roboto', sans-serif;
 	font-size: 24px;
+}
+
+button:disabled {
+	color: red;
+	border-color: red;
 }
 
 .small {

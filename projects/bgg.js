@@ -3,14 +3,30 @@ const apiRoot = "https://cors.io?https://bgg-json.azurewebsites.net/"
 // cache the api response after the first call
 var cachedResponse = null;
 
+var submitButton;
+var moreButton;
+var resultDiv;
+
 window.onload = function() {
-	document.getElementById("submit").onclick = bggSearch;
-	document.getElementById("more").onclick = toggleHidables;
+	submitButton = document.getElementById("submit");
+	moreButton = document.getElementById("more");
+	resultDiv = document.getElementById("result");
+	
+	submitButton.onclick = bggSearch;
+	moreButton.onclick = toggleHidables;
 	console.log("Made by Michael Wong https://michaelwong.io. Source on GitHub: https://github.com/Emporophobe/Emporophobe.github.io");
 }
 
 // clear the cache when the search is changed
-document.addEventListener("input", () => cachedResponse = null, false);
+document.addEventListener("input", inputEventListener, false);
+
+function inputEventListener(event) {
+	if (event.target.id == "bgg-username") {
+		cachedResponse = null;
+	}
+	
+	submitButton.disabled = !document.getElementById("bgg-settings").reportValidity();
+}
 
 function bggSearch() {
 	const url = apiRoot + "collection/" + document.getElementById("bgg-username").value + "?grouped=false";
@@ -18,13 +34,13 @@ function bggSearch() {
 	if (cachedResponse) {
 		updatePage(selectGame(cachedResponse));
 	} else {
-		document.getElementById("result").classList.add("loading");
+		resultDiv.classList.add("loading");
 		fetch(url)
 		.then(function(response) {
 			return response.json();
 		})
 		.then(function(responseJson) {
-			document.getElementById("result").classList.remove("loading");
+			resultDiv.classList.remove("loading");
 			cachedResponse = responseJson;
 			updatePage(selectGame(responseJson));
 		});
@@ -96,10 +112,10 @@ function selectByWeight(options, weights, targetWeight, totalWeight) {
 }
 
 function updatePage(message) {
-	document.getElementById("result").innerHTML = message;
+	resultDiv.innerHTML = message;
 }
 
 function toggleHidables() {
 	document.querySelectorAll(".hidable").forEach(element => element.classList.toggle("hidden"));
-	document.getElementById("more").innerText = (document.getElementById("more").innerText.toLowerCase() === "more" ? "Less" : "More");
+	moreButton.innerText = (document.getElementById("more").innerText.toLowerCase() === "more" ? "Less" : "More");
 }
