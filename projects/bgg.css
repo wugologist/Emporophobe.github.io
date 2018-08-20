@@ -43,9 +43,13 @@ input[type='number'] {
     -moz-appearance:textfield;
 }
 
-#submit {
+button {
 	margin: 20px 50%;
 	align-content: center;
 	font-family: 'Roboto', sans-serif;
 	font-size: 24px;
+}
+
+.hidden {
+	display: none;
 }

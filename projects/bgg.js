@@ -5,6 +5,7 @@ var cachedResponse = null;
 
 window.onload = function() {
 	document.getElementById("submit").onclick = bggSearch;
+	document.getElementById("more").onclick = toggleHidables;
 }
 
 // clear the cache when the search is changed
@@ -44,4 +45,9 @@ function selectGame(gameJson) {
 
 function updatePage(game) {
 	document.getElementById("result").innerHTML = game ? "How about a nice game of " + game.name + "?" : "No games fit your criteria.";
+}
+
+function toggleHidables() {
+	document.querySelectorAll(".hidable").forEach(element => element.classList.toggle("hidden"));
+	document.getElementById("more").innerText = (document.getElementById("more").innerText.toLowerCase() === "more" ? "Less" : "More");
 }
