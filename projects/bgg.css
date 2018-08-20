@@ -1,0 +1,51 @@
+form {
+	font-size: 24px;
+	font-weight: 100;
+}
+
+form>div {
+	padding: 5px;
+}
+
+label {
+	width: 1000px;
+}
+
+input {
+	background-color: transparent;
+	border: none;
+	color: var(--light);
+	font-size: 24px;
+	font-weight: 100;
+	border-bottom: 1px solid var(--light);
+}
+
+input:invalid {
+	color: red;
+	box-shadow: none;
+}
+
+input:hover {
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	border-bottom: 1px solid var(--teal);
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+#submit {
+	margin: 20px 50%;
+	align-content: center;
+	font-family: 'Roboto', sans-serif;
+	font-size: 24px;
+}

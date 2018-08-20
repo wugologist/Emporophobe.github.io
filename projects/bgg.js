@@ -7,7 +7,10 @@ window.onload = function() {
 	document.getElementById("submit").onclick = bggSearch;
 }
 
-var bggSearch = function() {
+// clear the cache when the search is changed
+document.addEventListener("input", () => cachedResponse = null, false);
+
+function bggSearch() {
 	const url = apiRoot + "collection/" + document.getElementById("bgg-username").value + "?grouped=false";
 	document.getElementById("result").innerHTML = "🤔"
 	if (cachedResponse) {
@@ -24,7 +27,7 @@ var bggSearch = function() {
 	}
 }
 
-var selectGame = function(gameJson) {
+function selectGame(gameJson) {
 	const numPlayers = document.getElementById("num-players").value;
 	const minDuration = document.getElementById("min-duration").value;
 	const maxDuration = document.getElementById("max-duration").value;
@@ -39,6 +42,6 @@ var selectGame = function(gameJson) {
 	return validGames[Math.floor(Math.random()*validGames.length)];	
 }
 
-var updatePage = function(game) {
-	document.getElementById("result").innerHTML = game.name;
+function updatePage(game) {
+	document.getElementById("result").innerHTML = game ? "How about a nice game of " + game.name + "?" : "No games fit your criteria.";
 }
