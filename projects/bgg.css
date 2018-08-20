@@ -17,6 +17,7 @@ form>div {
 label {
 	display: inline-block;
 	width: 300px;
+	vertical-align: top;
 }
 
 input {
@@ -67,4 +68,29 @@ button {
 
 .hidden {
 	display: none;
+}
+
+fieldset {
+	border: none;
+	display: inline-block;
+	width: 300px;
+	margin: 0;
+	padding: 0;
+}
+
+fieldset label {
+	display: inline;
+	width: auto;
+}
+
+fieldset input {
+	width: auto;
+}
+
+#result {
+	text-align: center;
+}
+
+.loading {
+	font-size: 64pt;
 }

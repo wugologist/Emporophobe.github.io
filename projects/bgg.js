@@ -17,11 +17,13 @@ function bggSearch() {
 	if (cachedResponse) {
 		updatePage(selectGame(cachedResponse));
 	} else {
+		document.getElementById("result").classList.add("loading");
 		fetch(url)
 		.then(function(response) {
 			return response.json();
 		})
 		.then(function(responseJson) {
+			document.getElementById("result").classList.remove("loading");
 			cachedResponse = responseJson;
 			updatePage(selectGame(responseJson));
 		});
@@ -36,6 +38,7 @@ function selectGame(gameJson) {
 	const numPlayers = document.getElementById("num-players").value;
 	const minDuration = document.getElementById("min-duration").value;
 	const maxDuration = document.getElementById("max-duration").value;
+	const weighting = document.querySelector('input[name="weight"]:checked').value;
 	const validGames = gameJson.filter(game => 
 		game.owned
 		&& !game.isExpansion
@@ -44,8 +47,51 @@ function selectGame(gameJson) {
 		&& (!minDuration || game.playingTime >= minDuration)
 		&& (!maxDuration || game.playingTime <= maxDuration)
 	);
-	const selected = validGames[Math.floor(Math.random()*validGames.length)];
-	return selected ? "How about a nice game of <b>" + selected.name + "</b>?" : "No games fit your criteria.";
+	
+	if (weighting === "none") {
+		const selected = validGames[Math.floor(Math.random()*validGames.length)];
+		return formatGameChoice(selected, validGames);		
+	} else if (weighting === "bgg") {
+		return 	formatGameChoice(weightedChoice(validGames, validGames.map(game => game.averageRating)),
+			validGames.filter(game => game.averageRating >= 0));
+	} else if (weighting === "user") {
+		return 	formatGameChoice(weightedChoice(validGames, validGames.map(game => game.rating)),
+			validGames.filter(game => game.rating >= 0));		
+	}
+}
+
+function formatGameChoice(game, validGames) {
+	console.log(validGames)
+	switch (validGames.length) {
+		case 0:
+			return "No games fit your criteria."
+		case 1:
+			return "<b>" + game.name + "</b> is your only choice."
+		default:
+			return "How about a nice game of <b>" + game.name + "</b>?"
+	}
+}
+
+function weightedChoice(options, weights) {
+	// unrated games have a weight of -1
+	const weightedOptions = options.filter((option, i) => weights[i] >= 0); 
+	const filteredWeights = weights.filter(weight => weight >= 0)
+	const totalWeight = filteredWeights.reduce((sum, weight) => sum + weight);
+	const selectedWeight = Math.random() * totalWeight;
+	return selectByWeight(weightedOptions, filteredWeights, selectedWeight, 0);
+}
+
+// A gratuitously tail-recursive function.
+function selectByWeight(options, weights, targetWeight, totalWeight) {
+	if (options.length === 0) {
+		return null;
+	}else if (options.length === 1) {
+		return options[0];
+	} else if (totalWeight + weights[0] >= targetWeight) {
+		return options[0];
+	} else {
+		return selectByWeight(options.slice(1), weights.slice(1), targetWeight, totalWeight + weights[0]);
+	}	
 }
 
 function updatePage(message) {
