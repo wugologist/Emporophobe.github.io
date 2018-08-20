@@ -8,24 +8,28 @@ var moreButton;
 var resultDiv;
 
 window.onload = function() {
+	console.log("Made by Michael Wong https://michaelwong.io. Source on GitHub: https://github.com/Emporophobe/Emporophobe.github.io");
+	
 	submitButton = document.getElementById("submit");
 	moreButton = document.getElementById("more");
 	resultDiv = document.getElementById("result");
 	
-	submitButton.onclick = bggSearch;
+	submitButton.onclick = submitClickHandler;
 	moreButton.onclick = toggleHidables;
-	console.log("Made by Michael Wong https://michaelwong.io. Source on GitHub: https://github.com/Emporophobe/Emporophobe.github.io");
+	
+	document.addEventListener("input", inputEventListener, false);
 }
 
-// clear the cache when the search is changed
-document.addEventListener("input", inputEventListener, false);
+function submitClickHandler(event) {
+	if (document.getElementById("bgg-settings").reportValidity()) {
+		bggSearch();
+	}
+}
 
 function inputEventListener(event) {
 	if (event.target.id == "bgg-username") {
 		cachedResponse = null;
 	}
-	
-	submitButton.disabled = !document.getElementById("bgg-settings").reportValidity();
 }
 
 function bggSearch() {
@@ -78,7 +82,6 @@ function selectGame(gameJson) {
 }
 
 function formatGameChoice(game, validGames) {
-	console.log(validGames)
 	switch (validGames.length) {
 		case 0:
 			return "No games fit your criteria."
@@ -117,5 +120,5 @@ function updatePage(message) {
 
 function toggleHidables() {
 	document.querySelectorAll(".hidable").forEach(element => element.classList.toggle("hidden"));
-	moreButton.innerText = (document.getElementById("more").innerText.toLowerCase() === "more" ? "Less" : "More");
+	moreButton.innerText = (moreButton.innerText.toLowerCase() === "more" ? "Less" : "More");
 }
