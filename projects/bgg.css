@@ -1,0 +1,129 @@
+h1, h2, h3, p {
+	text-align: center;
+}
+
+form {
+	font-size: 24px;
+	font-weight: 100;
+	width: 610px;
+	margin: auto;
+}
+
+form>div {
+	width: 610px;
+	padding: 5px;
+}
+
+label {
+	display: inline-block;
+	width: 300px;
+	vertical-align: top;
+}
+
+input {
+	width: 300px;
+	background-color: transparent;
+	border: none;
+	color: var(--light);
+	font-size: 24px;
+	font-weight: 100;
+	border-bottom: 1px solid var(--light);
+}
+
+input:invalid {
+	color: red;
+	box-shadow: none;
+	border-bottom: 1px solid red;
+}
+
+input:hover {
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	border-bottom: 1px solid var(--teal);
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+button {
+	text-transform: none;
+	margin: 50px auto;
+	display: block;
+	align-content: center;
+	font-family: 'Roboto', sans-serif;
+	font-size: 24px;
+}
+
+button:disabled {
+	color: red;
+	border-color: red;
+}
+
+.small {
+	font-size: 16px;
+	margin: 20px auto;
+}
+
+.hidden {
+	display: none;
+}
+
+fieldset {
+	border: none;
+	display: inline-block;
+	width: 300px;
+	margin: 0;
+	padding: 0;
+}
+
+fieldset label {
+	display: inline;
+	width: auto;
+}
+
+fieldset input {
+	width: auto;
+}
+
+#result {
+	text-align: center;
+}
+
+.loading {
+	font-size: 64pt;
+}
+
+@media (max-width: 610px) {
+	#content {
+		width: auto;
+		min-width: auto;
+		margin: 0;
+	}
+	
+	form, form>div {
+		width: 300px;
+	}
+	label, input, fieldset {
+		width: auto;
+		align-content: center;
+	}
+	
+	.small {
+		font-size: 20px;
+		margin: 10px auto;
+	}
+	
+	#submit {
+		font-size: 32px;
+		margin: 5px auto;
+	}
+}

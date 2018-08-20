@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title>Bored Games</title>
+	<link rel="icon" type="image/png" sizes="32x32" href="../resources/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../resources/favicon-16x16.png">
+	<link rel="shortcut icon" href="../resources/favicon.ico">
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,400" rel="stylesheet"> 
+	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="./bgg.css">
+	<script src="./bgg.js"></script>
+</head>
+<body>
+	<div id="content">
+		<h1>Bored Games</h1>
+		<form id="bgg-settings">
+			<div>
+				<label>BGG Username</label>
+				<input type="text" id="bgg-username" required>
+			</div>
+			<div>
+				<label>Number of Players</label>
+				<input type="number" id="num-players" required min="1">
+			</div>
+			<div class="hidable hidden">
+				<label>Minimum Time (minutes)</label>
+				<input type="number" id="min-duration" placeholder="optional" min="1">
+			</div>
+			<div class="hidable hidden">
+				<label>Maximum Time (minutes)</label>
+				<input type="number" id="max-duration" placeholder="optional" min="1">
+			</div>
+			<div class="hidable hidden">
+				<label>Weighting:</label>
+				<fieldset>
+					<div>
+						<input type="radio" checked id="none" name="weight" value="none">
+						<label for="none">None</label>
+					</div>
+					<div>
+						<input type="radio" id="bgg" name="weight" value="bgg">
+						<label for="bgg">BGG Rating</label>
+					</div>
+					<div>
+						<input type="radio" id="user" name="weight" value="user">
+						<label for="user">User Rating</label>
+					</div>
+				</fieldset>
+			</div>
+			<button type="button" id="more" class="small">More</button>
+			<div>
+				<button type="button" id="submit">Let's Play</button>
+			</div>
+			<div id="result"></div>
+		</form>
+	</div>
+</body>
+</html>

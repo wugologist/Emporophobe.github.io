@@ -39,10 +39,15 @@ p>a, p>a:visited {
 }
 
 p>a:hover {
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
 	color: var(--teal);
 }
 
-.button {
+.button, button {
+	background-color: transparent;
 	text-decoration: none;
 	padding: 5px 15px;
 	border: 1px solid var(--light);
@@ -55,12 +60,20 @@ p>a:hover {
 	display: inline-block;
 }
 
-.button:hover {
+.button:hover, button:hover {
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
 	color: var(--teal);
 	border-color: var(--teal);
 }
 
-.button:active {
+.button:active, button:active {
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
 	color: var(--dark);
 	border-color: var(--dark);
 	background-color: var(--light);
