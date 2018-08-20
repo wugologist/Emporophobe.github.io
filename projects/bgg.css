@@ -1,17 +1,26 @@
+h1, h2, h3, p {
+	text-align: center;
+}
+
 form {
 	font-size: 24px;
 	font-weight: 100;
+	width: 610px;
+	margin: auto;
 }
 
 form>div {
+	width: 610px;
 	padding: 5px;
 }
 
 label {
-	width: 1000px;
+	display: inline-block;
+	width: 300px;
 }
 
 input {
+	width: 300px;
 	background-color: transparent;
 	border: none;
 	color: var(--light);
@@ -44,10 +53,16 @@ input[type='number'] {
 }
 
 button {
-	margin: 20px 50%;
+	margin: 50px auto;
+	display: block;
 	align-content: center;
 	font-family: 'Roboto', sans-serif;
 	font-size: 24px;
+}
+
+.small {
+	font-size: 16px;
+	margin: 20px auto;
 }
 
 .hidden {

@@ -24,11 +24,15 @@ function bggSearch() {
 		.then(function(responseJson) {
 			cachedResponse = responseJson;
 			updatePage(selectGame(responseJson));
-		})
+		});
 	}
 }
 
 function selectGame(gameJson) {
+	if (gameJson.length === 0) {
+		return "No games found for given username.";
+	}
+	
 	const numPlayers = document.getElementById("num-players").value;
 	const minDuration = document.getElementById("min-duration").value;
 	const maxDuration = document.getElementById("max-duration").value;
@@ -40,11 +44,12 @@ function selectGame(gameJson) {
 		&& (!minDuration || game.playingTime >= minDuration)
 		&& (!maxDuration || game.playingTime <= maxDuration)
 	);
-	return validGames[Math.floor(Math.random()*validGames.length)];	
+	const selected = validGames[Math.floor(Math.random()*validGames.length)];
+	return selected ? "How about a nice game of <b>" + selected.name + "</b>?" : "No games fit your criteria.";
 }
 
-function updatePage(game) {
-	document.getElementById("result").innerHTML = game ? "How about a nice game of " + game.name + "?" : "No games fit your criteria.";
+function updatePage(message) {
+	document.getElementById("result").innerHTML = message;
 }
 
 function toggleHidables() {

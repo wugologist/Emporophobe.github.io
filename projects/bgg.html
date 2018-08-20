@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Game Selector 3000</title>
+	<title>Bored Games</title>
 	<link rel="icon" type="image/png" sizes="32x32" href="../resources/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="../resources/favicon-16x16.png">
 	<link rel="shortcut icon" href="../resources/favicon.ico">
@@ -12,6 +12,8 @@
 </head>
 <body>
 	<div id="content">
+		<h1>Bored Games</h1>
+		<p>Randomly select a game from a Board Game Geek collection.</p>
 		<form>
 			<div>
 				<label>BGG Username</label>
@@ -19,18 +21,20 @@
 			</div>
 			<div>
 				<label>Number of players:</label>
-				<input type="number" id="num-players" required>
+				<input type="number" id="num-players" required min="1">
 			</div>
 			<div class="hidable hidden">
 				<label>Minimum Time (minutes):</label>
-				<input type="number" id="min-duration" placeholder="optional">
+				<input type="number" id="min-duration" placeholder="optional" min="1">
 			</div>
 			<div class="hidable hidden">
 				<label>Maximum Time (minutes):</label>
-				<input type="number" id="max-duration" placeholder="optional">
+				<input type="number" id="max-duration" placeholder="optional" min="1">
 			</div>
-			<button type="button" id="more">More</button>
-			<button type="button" id="submit">Search!</button>
+			<button type="button" id="more" class="small">More</button>
+			<div>
+				<button type="button" id="submit">Search!</button>
+			</div>
 			<div id="result"></div>
 		</form>
 	</div>
