@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>Michael Wong</title>
+	<link rel="icon" type="image/png" sizes="32x32" href="../resources/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../resources/favicon-16x16.png">
+	<link rel="shortcut icon" href="../resources/favicon.ico">
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,400" rel="stylesheet"> 
+	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../components/header.css">
+	<link rel="import" href="../components/header.html">
+	<script src="./bgg.js"></script>
+</head>
+<body>
+	<div id="header"></div>
+	<div id="content">
+		<form>
+			<div>
+				<label>BGG Username</label>
+				<input type="text" id="bgg-username" required=true>
+			</div>
+			<div>
+				<label>Number of players:</label>
+				<input type="number" id="num-players" required=true>
+			</div>
+			<div>
+				<label>Time (minutes):</label>
+				<input type="number" id="duration" required=false>
+			</div>
+			<button type="button" id="submit">Search!</button>
+			<div id="result">??</div>
+		</form>
+	</div>
+</body>
+</html>
