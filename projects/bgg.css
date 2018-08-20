@@ -54,6 +54,7 @@ input[type='number'] {
 }
 
 button {
+	text-transform: none;
 	margin: 50px auto;
 	display: block;
 	align-content: center;
@@ -93,4 +94,30 @@ fieldset input {
 
 .loading {
 	font-size: 64pt;
+}
+
+@media (max-width: 610px) {
+	#content {
+		width: auto;
+		min-width: auto;
+		margin: 0;
+	}
+	
+	form, form>div {
+		width: 300px;
+	}
+	label, input, fieldset {
+		width: auto;
+		align-content: center;
+	}
+	
+	.small {
+		font-size: 20px;
+		margin: 10px auto;
+	}
+	
+	#submit {
+		font-size: 32px;
+		margin: 5px auto;
+	}
 }

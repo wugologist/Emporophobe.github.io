@@ -6,6 +6,7 @@ var cachedResponse = null;
 window.onload = function() {
 	document.getElementById("submit").onclick = bggSearch;
 	document.getElementById("more").onclick = toggleHidables;
+	console.log("Made by Michael Wong https://michaelwong.io. Source on GitHub: https://github.com/Emporophobe/Emporophobe.github.io");
 }
 
 // clear the cache when the search is changed
