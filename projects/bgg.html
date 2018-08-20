@@ -17,18 +17,22 @@
 		<form>
 			<div>
 				<label>BGG Username</label>
-				<input type="text" id="bgg-username" required=true>
+				<input type="text" id="bgg-username" required>
 			</div>
 			<div>
 				<label>Number of players:</label>
-				<input type="number" id="num-players" required=true>
+				<input type="number" id="num-players" required>
 			</div>
 			<div>
-				<label>Time (minutes):</label>
-				<input type="number" id="duration" required=false>
+				<label>Minimum Time (minutes):</label>
+				<input type="number" id="min-duration">
+			</div>
+			<div>
+				<label>Maximum Time (minutes):</label>
+				<input type="number" id="max-duration">
 			</div>
 			<button type="button" id="submit">Search!</button>
-			<div id="result">??</div>
+			<div id="result"></div>
 		</form>
 	</div>
 </body>
