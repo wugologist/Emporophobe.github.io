@@ -2,7 +2,7 @@
 const apiRoot = "https://cors.io?https://bgg-json.azurewebsites.net/"
 // cache the api response after the first call
 var cachedResponse = null;
-
+	
 var submitButton;
 var moreButton;
 var resultDiv;
@@ -47,7 +47,13 @@ function bggSearch() {
 			resultDiv.classList.remove("loading");
 			cachedResponse = responseJson;
 			updatePage(selectGame(responseJson));
-		});
+		})
+		.catch(function(error) {
+			// don't cache bad response
+			resultDiv.classList.remove("loading");
+			cachedResponse = null;
+			updatePage("There was an error processing your request :(");
+		})
 	}
 }
 

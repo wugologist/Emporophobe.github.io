@@ -97,7 +97,7 @@ fieldset input {
 	font-size: 64pt;
 }
 
-@media (max-width: 610px) {
+@media (max-width: 768px) {
 	#content {
 		width: auto;
 		min-width: auto;
