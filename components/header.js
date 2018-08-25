@@ -8,7 +8,12 @@ window.onload = function() {
 		// When it's now complete
 		if (ajax.readyState === 4) {
 			// Inject the response into the #header element
-			document.querySelector("#header").innerHTML = ajax.response;
+			document.getElementById("header").innerHTML = ajax.response;
+			document.getElementById("menu").onclick = toggleOpen;
 		}
-	}
+	}	
+}
+
+function toggleOpen() {
+	document.getElementById("header").classList.toggle("open");
 }

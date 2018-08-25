@@ -17,7 +17,6 @@ body {
 #content {
 	width: 50%;
 	margin: 100px auto;
-	min-width: 600px;
 }
 
 h1, h2, h3, h4, h5, h6, h7 {
@@ -87,4 +86,19 @@ p>a:hover {
 
 .contact-img {
 	height: 50px;
+}
+
+@media screen and (max-width: 768px) {
+	#content {
+		width: 90%;
+	}
+	
+	h1, h2, h3, h4, h5, h6, h7 {
+		text-align: center;
+	}
+	
+	.button {
+		display: block;
+		font-size: 20px;
+	}
 }
