@@ -7,7 +7,7 @@
 html {
 	background-color: var(--dark);
 	color: var(--light);
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Monserrat', sans-serif;
 }
 
 body {
@@ -20,6 +20,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, h7 {
+	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
 }
 

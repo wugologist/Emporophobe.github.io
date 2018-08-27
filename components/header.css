@@ -6,6 +6,7 @@
 	height: 50px;
 	color: var(--dark);
 	font-size: 40px;
+	font-family: 'Roboto', sans-serif;
 }
 
 #header #title {
