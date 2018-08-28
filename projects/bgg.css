@@ -1,3 +1,8 @@
+
+#content {
+	width: 620px;
+}
+
 h1, h2, h3, p {
 	text-align: center;
 }
@@ -59,7 +64,7 @@ button {
 	margin: 50px auto;
 	display: block;
 	align-content: center;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Monserrat', sans-serif;
 	font-size: 24px;
 }
 
@@ -88,6 +93,63 @@ fieldset label {
 fieldset input {
 	width: auto;
 }
+
+ /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--light);
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--dark);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: var(--teal);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  background-color: var(--light);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+} 
 
 #result {
 	text-align: center;
