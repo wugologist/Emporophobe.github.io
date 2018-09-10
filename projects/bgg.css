@@ -9,7 +9,6 @@ h1, h2, h3, p {
 
 form {
 	font-size: 24px;
-	font-weight: 100;
 	width: 610px;
 	margin: auto;
 }
@@ -94,7 +93,6 @@ fieldset input {
 	width: auto;
 }
 
- /* The switch - the box around the slider */
 .switch {
   position: relative;
   display: inline-block;
