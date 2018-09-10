@@ -52,7 +52,7 @@ function bggSearch() {
 			// don't cache bad response
 			resultDiv.classList.remove("loading");
 			cachedResponse = null;
-			updatePage("There was an error processing your request :(");
+			updatePage("There was an error processing your request 😢");
 		})
 	}
 }
@@ -66,6 +66,7 @@ function selectGame(gameJson) {
 	const minDuration = document.getElementById("min-duration").value;
 	const maxDuration = document.getElementById("max-duration").value;
 	const weighting = document.querySelector('input[name="weight"]:checked').value;
+	const showAll = document.getElementById("show-all").checked;
 	const validGames = gameJson.filter(game => 
 		game.owned
 		&& !game.isExpansion
@@ -74,6 +75,10 @@ function selectGame(gameJson) {
 		&& (!minDuration || game.playingTime >= minDuration)
 		&& (!maxDuration || game.playingTime <= maxDuration)
 	);
+	
+	if (showAll) {
+		return listAllGames(validGames);
+	}
 	
 	if (weighting === "none") {
 		const selected = validGames[Math.floor(Math.random()*validGames.length)];
@@ -85,6 +90,16 @@ function selectGame(gameJson) {
 		return 	formatGameChoice(weightedChoice(validGames, validGames.map(game => game.rating)),
 			validGames.filter(game => game.rating >= 0));		
 	}
+}
+
+function listAllGames(validGames) {
+	var list = document.createElement("ul");
+	validGames.map(game => {
+		var item = document.createElement("li");
+		item.appendChild(document.createTextNode(game.name));
+		list.appendChild(item);
+	})
+	return list.innerHTML;
 }
 
 function formatGameChoice(game, validGames) {
